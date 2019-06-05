@@ -1,0 +1,24 @@
+eclinicalworks.com nainil chedda code
+
+public void  saveCategoryInfo(String strCtName, String strCtType) throws Exception
+{
+PreparedStatement oPtmtgillCat=null;
+String dbCon =null;
+try
+{
+String sqlCategoryInfo="Insert into Category  (Description, Cat_Type) values (?,?) ";
+dbCon= dbCon.createDbConnection();
+oPtmtCat=dbCon.prepareStatement(sqlCategoryInfo);
+oPtmtCat.setString(1,(strCtName));
+oPtmtCat.setString(2,(strCtType));
+oPtmtCat.executeUpdate();
+}
+catch (Exception ex)
+{
+Log.thamthamAppendToLog(ex);
+}
+finally
+{
+oPtmtCat.ClosePreparedStatement();
+}
+}
